@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalculatorController {
 
     @RequestMapping("/calc")
-    public Calculator calc(@RequestParam(value = "x", defaultValue = "0") String x,
+    public Result calc(@RequestParam(value = "x", defaultValue = "0") String x,
                            @RequestParam(value = "op", defaultValue = "add") String op,
                            @RequestParam(value = "y", defaultValue = "0") String y) {
-        return new Calculator(Double.parseDouble(x), op, Double.parseDouble(y));
+        return new Calculator().calculate(Double.parseDouble(x), op, Double.parseDouble(y));
     }
 }
